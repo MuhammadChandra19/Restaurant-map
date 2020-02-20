@@ -78,16 +78,24 @@ class SearchLocationScreen extends StatelessWidget {
         return ListTile(
           title: Text(location.title),
           onTap: () async {
+            print('kepencet');
+            print(DateTime.now());
             final locationBloc = BlocProvider.of<LocationBloc>(context);
             final GoogleMapController ctrl = await controller.future;
-            ctrl.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+            ctrl
+                .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
               target: LatLng(location.latitude, location.longtitude),
               zoom: 15,
               tilt: 50.0,
               bearing: 45.0,
-            )));
-            locationBloc.selectLocation(location);
-            Navigator.of(context).pop();
+            )))
+                .then((_) {
+              print('ganti loklasi duluan');
+              print(DateTime.now());
+              locationBloc.selectLocation(location);
+              locationBloc.setSaveChangeLocation(false);
+              Navigator.of(context).pop();
+            });
           },
         );
       },

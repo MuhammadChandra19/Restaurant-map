@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_map/BLoC/bloc_provider.dart';
-import 'package:restaurant_map/UI/screen/MainSearch_screen.dart';
 import 'package:restaurant_map/UI/screen/NearbyRestaurants_screen.dart';
 import 'package:restaurant_map/UI/screen/SearchLocations_screen.dart';
 import 'package:restaurant_map/domains/location/BLoC/location_bloc.dart';

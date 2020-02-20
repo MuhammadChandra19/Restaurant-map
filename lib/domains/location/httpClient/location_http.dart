@@ -8,6 +8,9 @@ class LocationHttp {
     final result = await _baseApi.request(
         path: 'geocode',
         parameters: {'lat': lat.toString(), 'lon': lon.toString()});
+    print(result);
+    print(lat);
+    print(lon);
     return Location.fromJson(result['location']);
   }
 

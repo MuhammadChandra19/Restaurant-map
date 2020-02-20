@@ -8,9 +8,10 @@ class StartRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool hasDecimal = (value % 1) != 0;
+    int roundValue = value.ceil();
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (i) {
+      children: List.generate(roundValue, (i) {
         if (i < value.toInt()) {
           return Icon(
             FontAwesomeIcons.solidStar,
